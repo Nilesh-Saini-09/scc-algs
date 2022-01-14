@@ -6,7 +6,10 @@ const algsData = require('../algs.json');
 // Retrieve all algs
 const getAllAlgs = (req, res) => {
     try {
-        res.send(algsData);
+        let data = JSON.stringify(algsData)
+        res.send(data);
+        //res.send(algsData);
+        console.log(typeof algsData)
     } catch (error) {
         res.send('Please enter correct route')
         console.log(error);
@@ -17,7 +20,9 @@ const getAllAlgs = (req, res) => {
 const getAlgsByPuzzle = async (req, res) => {
     let {puzzle} = await req.params;
     try {
-        res.send(algsData.algs[puzzle]);
+        let data = JSON.stringify(algsData.algs[puzzle])
+        res.send(data);
+        //res.send(algsData.algs[puzzle]);
     } catch (error) {
         console.log(error);
         res.send('Not Found');
@@ -28,7 +33,9 @@ const getAlgsByPuzzle = async (req, res) => {
 const getAlgByAlgSet = async (req, res) => {
     let {puzzle, algSet} = await req.params;
     try {
-        res.send(algsData.algs[puzzle][algSet]);
+        let data = JSON.stringify(algsData.algs[puzzle][algSet])
+        res.send(data);
+        //res.send(algsData.algs[puzzle][algSet]);
     } catch (error) {
         console.log(error);
         res.send('Not Found');
@@ -39,7 +46,9 @@ const getAlgByAlgSet = async (req, res) => {
 const getAlgById = async (req, res) => {
     let {puzzle, algSet, num} = await req.params;
     try {
-        res.send(algsData.algs[puzzle][algSet][num]);
+        let data = JSON.stringify(algsData.algs[puzzle][algSet][num]);
+        res.send(data);
+        //res.send(algsData.algs[puzzle][algSet][num]);
     } catch (error) {
         console.log(error);
         res.send('Not Found');
